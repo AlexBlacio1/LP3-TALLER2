@@ -2,7 +2,6 @@ package com.taller1.Controlador;
 
 import com.taller1.Entidad.FormularioComprar;
 import com.taller1.Entidad.FormularioContacto;
-import com.taller1.Entidad.FormularioVender;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,21 +40,6 @@ public class PaginaControlador {
             BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "screens/comprar";
-        }
-        return "screens/registroExitoso";
-    }
-
-    @GetMapping("/vender")
-    public String mostrarPaginaVender(Model model) {
-        model.addAttribute("formularioVender", new FormularioVender());
-        return "screens/vender";
-    }
-
-    @PostMapping("/enviarFormularioVender")
-    public String enviarFormularioVender(@Valid @ModelAttribute("formularioVender") FormularioVender formularioVender,
-                                         BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            return "screens/vender";
         }
         return "screens/registroExitoso";
     }
