@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor Tecnológico - Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<!-- Navbar -->
+<nav class="bg-blue-600 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <a th:href="@{/}" class="hover:text-green-200 font-medium text-lg">Gestor Tecnológico</a>
+        <button class="md:hidden text-white">☰</button>
+        <ul class="hidden md:flex space-x-6">
+            <a th:href="@{/servicios}" class="hover:text-green-200 font-medium text-lg">Servicios</a>
+            <a th:href="@{/productos}" class="hover:text-green-200 font-medium text-lg">Productos</a>
+            <a th:href="@{/comprar}" class="hover:text-green-200 font-medium text-lg">Comprar</a>
+            <a th:href="@{/vender}" class="hover:text-green-200 font-medium text-lg">Vender</a>
+            <a th:href="@{/contacto}" class="hover:text-green-200 font-medium text-lg">Contacto</a>
+        </ul>
+    </div>
+</nav>
+
+<!-- Header (similar a la página de inicio) -->
+<header class="relative w-full h-[500px] bg-cover bg-center flex items-center justify-center text-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?technology');">
+    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+        <h1 class="text-4xl font-bold">Servicios Tecnológicos que Ofrecemos</h1>
+        <p class="mt-2">Soluciones integrales para productos electrónicos, reparaciones y asesoría técnica especializada.</p>
+    </div>
+</header>
+
+<!-- Section principal -->
+<section class="container mx-auto my-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Nuestros Servicios</h2>
+    <p class="text-lg text-center mb-8">En Gestor Tecnológico, nos aseguramos de ofrecer los mejores servicios para satisfacer todas tus necesidades tecnológicas.</p>
+
+
+    <div class="max-w-3xl mx-auto">
+        <div id="carousel" class="relative w-full" data-carousel="static">
+            <div class="relative overflow-hidden rounded-lg h-80">
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img th:src="@{/img/reparacion_laptop.jpg}" alt="Reparación de Laptops"
+                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
+                        <h2 class="text-xl font-bold">Reparación de Laptops y Computadoras</h2>
+                        <p class="text-sm">Reparación rápida y eficiente de todo tipo de laptops y PCs. Diagnóstico y solución de problemas técnicos.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img th:src="@{/img/reparacion_telefonos.jpg}" alt="Reparación de Teléfonos"
+                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
+                        <h2 class="text-xl font-bold">Reparación de Teléfonos y Tablets</h2>
+                        <p class="text-sm">Servicio técnico para celulares y tablets de todas las marcas. Solucionamos tus problemas de hardware y software.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img th:src="@{/img/venta_productos_tecnologicos.webp}" alt="Venta de Productos"
+                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
+                        <h2 class="text-xl font-bold">Venta de Productos Tecnológicos</h2>
+                        <p class="text-sm">Explora nuestra variedad de productos tecnológicos: desde smartphones hasta accesorios electrónicos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black bg-opacity-30 group-hover:bg-opacity-50">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black bg-opacity-30 group-hover:bg-opacity-50">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white text-center p-4 mt-12">
+    <p>&copy; 2025 Gestor Tecnológico. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
