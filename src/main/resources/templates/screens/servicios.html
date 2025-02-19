@@ -11,78 +11,47 @@
 <body class="bg-gray-100 text-gray-900">
 
 <!-- Navbar -->
-<nav class="bg-blue-600 p-4 shadow-md">
+<nav class="bg-white border-b border-gray-200 shadow-sm p-4">
     <div class="container mx-auto flex justify-between items-center">
-        <a th:href="@{/}" class="hover:text-green-200 font-medium text-lg">Gestor Tecnológico</a>
-        <button class="md:hidden text-white">☰</button>
-        <ul class="hidden md:flex space-x-6">
-            <a th:href="@{/servicios}" class="hover:text-green-200 font-medium text-lg">Servicios</a>
-            <a th:href="@{/productos}" class="hover:text-green-200 font-medium text-lg">Productos</a>
-            <a th:href="@{/comprar}" class="hover:text-green-200 font-medium text-lg">Comprar</a>
-            <a th:href="@{/contacto}" class="hover:text-green-200 font-medium text-lg">Contacto</a>
+        <a th:href="@{/}" class="text-2xl font-bold text-blue-600">TechStore</a>
+        <ul class="flex space-x-4">
+            <li><a th:href="@{/servicios}" class="text-gray-700 hover:text-blue-500">Servicios</a></li>
+            <li><a th:href="@{/productos}" class="text-gray-700 hover:text-blue-500">Productos</a></li>
+            <li><a th:href="@{/comprar}" class="text-gray-700 hover:text-blue-500">Comprar</a></li>
+            <li><a th:href="@{/contacto}" class="text-gray-700 hover:text-blue-500">Contacto</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Header (similar a la página de inicio) -->
-<header class="relative w-full h-[500px] bg-cover bg-center flex items-center justify-center text-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?technology');">
-    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
-        <h1 class="text-4xl font-bold">Servicios Tecnológicos que Ofrecemos</h1>
-        <p class="mt-2">Soluciones integrales para productos electrónicos, reparaciones y asesoría técnica especializada.</p>
-    </div>
-</header>
+<!-- Header -->
+<section class="relative bg-blue-500 text-white text-center py-20"
+         th:style="'background-image: url(' + @{/img/servtec.png} + '); background-size: cover; background-position: center;'">
+    <h1 class="text-4xl font-bold">Servicios Tecnológicos</h1>
+    <p class="mt-4">Soluciones integrales para productos electrónicos y asesoría técnica especializada.</p>
+</section>
 
-<!-- Section principal -->
+<!-- Servicios -->
 <section class="container mx-auto my-12">
     <h2 class="text-3xl font-bold text-center mb-6">Nuestros Servicios</h2>
-    <p class="text-lg text-center mb-8">En Gestor Tecnológico, nos aseguramos de ofrecer los mejores servicios para satisfacer todas tus necesidades tecnológicas.</p>
+    <p class="text-lg text-center mb-8">Ofrecemos soluciones eficientes para tus necesidades tecnológicas.</p>
 
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/reparacion_laptop.jpg}" alt="Reparación de Laptops" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Reparación de Laptops</h3>
+            <p class="text-sm text-gray-600">Diagnóstico y reparación rápida de laptops y PCs.</p>
+        </div>
 
-    <div class="max-w-3xl mx-auto">
-        <div id="carousel" class="relative w-full" data-carousel="static">
-            <div class="relative overflow-hidden rounded-lg h-80">
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img th:src="@{/img/reparacion_laptop.jpg}" alt="Reparación de Laptops"
-                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
-                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
-                        <h2 class="text-xl font-bold">Reparación de Laptops y Computadoras</h2>
-                        <p class="text-sm">Reparación rápida y eficiente de todo tipo de laptops y PCs. Diagnóstico y solución de problemas técnicos.</p>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img th:src="@{/img/reparacion_telefonos.jpg}" alt="Reparación de Teléfonos"
-                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
-                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
-                        <h2 class="text-xl font-bold">Reparación de Teléfonos y Tablets</h2>
-                        <p class="text-sm">Servicio técnico para celulares y tablets de todas las marcas. Solucionamos tus problemas de hardware y software.</p>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img th:src="@{/img/venta_productos_tecnologicos.webp}" alt="Venta de Productos"
-                         class="absolute inset-0 w-full h-full object-cover rounded-lg">
-                    <div class="absolute bottom-0 left-0 p-5 bg-black bg-opacity-50 text-white">
-                        <h2 class="text-xl font-bold">Venta de Productos Tecnológicos</h2>
-                        <p class="text-sm">Explora nuestra variedad de productos tecnológicos: desde smartphones hasta accesorios electrónicos.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Controles -->
-            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black bg-opacity-30 group-hover:bg-opacity-50">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </span>
-            </button>
-            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black bg-opacity-30 group-hover:bg-opacity-50">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </span>
-            </button>
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/reparacion_telefonos.jpg}" alt="Reparación de Teléfonos" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Reparación de Teléfonos</h3>
+            <p class="text-sm text-gray-600">Servicio técnico especializado para celulares y tablets.</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/venta_productos_tecnologicos.webp}" alt="Venta de Productos" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Venta de Productos</h3>
+            <p class="text-sm text-gray-600">Accesorios tecnológicos y dispositivos electrónicos.</p>
         </div>
     </div>
 </section>

@@ -3,85 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Tech</title>
+    <title>Gestor Tecnológico - Productos</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
-
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-<nav class="bg-blue-600 p-4 shadow-md">
+<!-- Navbar -->
+<nav class="bg-white border-b border-gray-200 shadow-sm p-4">
     <div class="container mx-auto flex justify-between items-center">
-        <a th:href="@{/}" class="hover:text-green-200 font-medium text-lg">TechStore</a>
-        <button class="md:hidden text-white">☰</button>
-        <ul class="hidden md:flex space-x-6">
-            <a th:href="@{/servicios}" class="hover:text-green-200 font-medium text-lg">Servicios</a>
-            <a th:href="@{/productos}" class="hover:text-green-200 font-medium text-lg">Productos</a>
-            <a th:href="@{/comprar}" class="hover:text-green-200 font-medium text-lg">Comprar</a>
-            <a th:href="@{/contacto}" class="hover:text-green-200 font-medium text-lg">Contacto</a>
+        <a th:href="@{/}" class="text-2xl font-bold text-blue-600">TechStore</a>
+        <ul class="flex space-x-4">
+            <li><a th:href="@{/servicios}" class="text-gray-700 hover:text-blue-500">Servicios</a></li>
+            <li><a th:href="@{/productos}" class="text-gray-700 hover:text-blue-500">Productos</a></li>
+            <li><a th:href="@{/comprar}" class="text-gray-700 hover:text-blue-500">Comprar</a></li>
+            <li><a th:href="@{/contacto}" class="text-gray-700 hover:text-blue-500">Contacto</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Section principal -->
-<section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Productos Tecnológicos Disponibles</h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
-            Explora nuestro catálogo de productos tecnológicos. Encuentra la laptop, el smartphone o el accesorio ideal para ti. Tenemos opciones para todas tus necesidades.
-        </p>
-    </div>
+<!-- Header -->
+<section class="relative bg-blue-500 text-white text-center py-20"
+         th:style="'background-image: url(' + @{/img/prodtec.jpeg} + '); background-size: cover; background-position: center;'">
+    <h1 class="text-4xl font-bold">Nuestros Productos</h1>
+    <p class="mt-4">Explora nuestra variedad de productos tecnológicos de alta calidad.</p>
 </section>
 
-<!-- Productos en Grid -->
-<section class="py-10">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Producto 1 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img th:src="@{/img/laptop1.jpg}" alt="Laptop Ideal" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Laptop Gaming Ultra</h2>
-                <p class="text-gray-700 text-sm">Laptop gaming con procesador i7, 16GB de RAM y tarjeta gráfica RTX 3060. Ideal para juegos y trabajo intensivo.</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <span class="text-blue-600 font-bold">$1,200</span>
-                    <a href="#" class="text-blue-600 hover:underline text-sm">Ver más</a>
-                </div>
-            </div>
+<!-- Productos -->
+<section class="container mx-auto my-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Catálogo de Productos</h2>
+    <p class="text-lg text-center mb-8">Encuentra los dispositivos y accesorios ideales para ti.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/laptop1.jpg}" alt="Laptop Gaming Ultra" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Laptop Gaming Ultra</h3>
+            <p class="text-sm text-gray-600">Procesador i7, 16GB RAM y RTX 3060.</p>
+            <span class="text-blue-600 font-bold block mt-2">$1,200</span>
         </div>
-        <!-- Producto 2 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img th:src="@{/img/smartphone1.jpg}" alt="Smartphone Avanzado" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Smartphone 5G Pro</h2>
-                <p class="text-gray-700 text-sm">Smartphone con pantalla AMOLED de 6.5", cámara de 64MP y soporte para 5G. Diseño moderno y elegante.</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <span class="text-blue-600 font-bold">$700</span>
-                    <a href="#" class="text-blue-600 hover:underline text-sm">Ver más</a>
-                </div>
-            </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/smartphone1.jpg}" alt="Smartphone 5G Pro" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Smartphone 5G Pro</h3>
+            <p class="text-sm text-gray-600">Pantalla AMOLED de 6.5", cámara de 64MP.</p>
+            <span class="text-blue-600 font-bold block mt-2">$700</span>
         </div>
-        <!-- Producto 3 -->
-        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-            <img th:src="@{/img/auriculares1.png}" alt="Auriculares Inalámbricos" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">Auriculares Bluetooth</h2>
-                <p class="text-gray-700 text-sm">Auriculares inalámbricos con cancelación de ruido y batería de larga duración. Perfectos para escuchar música o hacer llamadas.</p>
-                <div class="mt-4 flex justify-between items-center">
-                    <span class="text-blue-600 font-bold">$150</span>
-                    <a href="#" class="text-blue-600 hover:underline text-sm">Ver más</a>
-                </div>
-            </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <img th:src="@{/img/auriculares1.png}" alt="Auriculares Bluetooth" class="w-full h-48 object-cover rounded-md mb-4">
+            <h3 class="text-xl font-semibold">Auriculares Bluetooth</h3>
+            <p class="text-sm text-gray-600">Cancelación de ruido y batería de larga duración.</p>
+            <span class="text-blue-600 font-bold block mt-2">$150</span>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white text-center py-4 mt-10">
-    <p>© 2025 Gestor Tecnológico. Todos los derechos reservados.</p>
+<footer class="bg-gray-900 text-white text-center p-4 mt-12">
+    <p>&copy; 2025 Gestor Tecnológico. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>

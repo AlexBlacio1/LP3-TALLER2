@@ -4,68 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Tech</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.0/flowbite.min.css" />
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100">
 
-<nav class="bg-blue-600 p-4 shadow-md">
+<!-- Navbar -->
+<nav class="bg-white border-b border-gray-200 shadow-sm p-4">
     <div class="container mx-auto flex justify-between items-center">
-        <a th:href="@{/}" class="hover:text-green-200 font-medium text-lg">TechStore</a>
-        <button class="md:hidden text-white">☰</button>
-        <ul class="hidden md:flex space-x-6">
-            <a th:href="@{/servicios}" class="hover:text-green-200 font-medium text-lg">Servicios</a>
-            <a th:href="@{/productos}" class="hover:text-green-200 font-medium text-lg">Productos</a>
-            <a th:href="@{/comprar}" class="hover:text-green-200 font-medium text-lg">Comprar</a>
-            <a th:href="@{/contacto}" class="hover:text-green-200 font-medium text-lg">Contacto</a>
+        <a th:href="@{/}" class="text-2xl font-bold text-blue-600">TechStore</a>
+        <ul class="flex space-x-4">
+            <li><a th:href="@{/servicios}" class="text-gray-700 hover:text-blue-500">Servicios</a></li>
+            <li><a th:href="@{/productos}" class="text-gray-700 hover:text-blue-500">Productos</a></li>
+            <li><a th:href="@{/comprar}" class="text-gray-700 hover:text-blue-500">Comprar</a></li>
+            <li><a th:href="@{/contacto}" class="text-gray-700 hover:text-blue-500">Contacto</a></li>
         </ul>
     </div>
 </nav>
 
-<header class="relative w-full h-[500px] bg-cover bg-center flex items-center justify-center text-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?technology');">
-    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
-        <h1 class="text-4xl font-bold">Descubre la Mejor Tecnología</h1>
-        <p class="mt-2">Encuentra los mejores productos al mejor precio</p>
-        <a th:href="@{/productos}">
-            <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Ver Productos</button>
-        </a>
-    </div>
-</header>
+<!-- Hero Section -->
+<section class="relative bg-blue-500 text-white text-center py-20"
+         th:style="'background-image: url(' + @{/img/techstore.png} + '); background-size: cover; background-position: center;'">
+    <h1 class="text-4xl font-bold">Descubre la Mejor Tecnología</h1>
+    <p class="mt-4">Encuentra los mejores productos al mejor precio</p>
+</section>
 
-<section class="container mx-auto my-12">
-    <h2 class="text-3xl font-bold text-center mb-6">Productos Destacados</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-4 shadow rounded-lg">
-            <img th:src="@{/img/laptop1.jpg}" alt="Smartphone" class="w-full h-40 object-cover rounded">
-            <h3 class="mt-4 text-lg font-semibold">Laptop Gamer</h3>
+<!-- Productos Destacados -->
+<section class="container mx-auto py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Productos Destacados</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="w-full aspect-[16/9] flex items-center justify-center">
+                <img th:src="@{/img/laptop1.jpg}" alt="Laptop Gamer" class="w-full h-full object-contain rounded">
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Laptop Gamer</h3>
             <p class="text-gray-600">Potencia y rendimiento para juegos.</p>
-            <a th:href="@{/comprar}">
-                <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Comprar</button>
-            </a>
         </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-            <img th:src="@{/img/smartphone1.jpg}" alt="Smartphone" class="w-full h-40 object-cover rounded">
-            <h3 class="mt-4 text-lg font-semibold">Smartphone Pro</h3>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="w-full aspect-[16/9] flex items-center justify-center">
+                <img th:src="@{/img/smartphone1.jpg}" alt="Smartphone" class="w-full h-full object-contain rounded">
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Smartphone Pro</h3>
             <p class="text-gray-600">Lo último en tecnología móvil.</p>
-            <a th:href="@{/comprar}">
-                <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Comprar</button>
-            </a>
         </div>
-        <div class="bg-white p-4 shadow rounded-lg">
-            <img th:src="@{/img/auriculares1.png}" alt="Auriculares" class="w-full h-40 object-cover rounded">
-            <h3 class="mt-4 text-lg font-semibold">Auriculares Bluetooth</h3>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="w-full aspect-[16/9] flex items-center justify-center">
+                <img th:src="@{/img/auriculares1.png}" alt="Auriculares" class="w-full h-full object-contain rounded">
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Auriculares Bluetooth</h3>
             <p class="text-gray-600">Calidad de sonido excepcional.</p>
-            <a th:href="@{/comprar}">
-                <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Comprar</button>
-            </a>
+        </div>
+    </div>
+</section>
+<section class="bg-blue-50 py-16">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-blue-600">¿Por qué elegirnos?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <div class="p-6 bg-white rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold">🚀 Envío Rápido</h3>
+                <p class="text-gray-600">Recibe tus productos en menos de 48 horas.</p>
+            </div>
+            <div class="p-6 bg-white rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold">⭐ Calidad Garantizada</h3>
+                <p class="text-gray-600">Solo productos de marcas reconocidas y de alto rendimiento.</p>
+            </div>
+            <div class="p-6 bg-white rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold">💰 Precios Competitivos</h3>
+                <p class="text-gray-600">Los mejores precios del mercado con descuentos exclusivos.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<footer class="bg-gray-900 text-white text-center p-4 mt-12">
+<!-- Testimonios -->
+<section class="container mx-auto py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Lo que dicen nuestros clientes</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-white rounded-lg shadow-lg">
+            <p class="text-gray-600 italic">"Compré una laptop gamer y la entrega fue súper rápida. Excelente servicio."</p>
+            <h4 class="text-lg font-semibold mt-4">- Carlos M.</h4>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg">
+            <p class="text-gray-600 italic">"Los mejores precios en tecnología, sin duda volveré a comprar aquí."</p>
+            <h4 class="text-lg font-semibold mt-4">- Laura R.</h4>
+        </div>
+        <div class="p-6 bg-white rounded-lg shadow-lg">
+            <p class="text-gray-600 italic">"Atención al cliente increíble, resolvieron mis dudas en minutos."</p>
+            <h4 class="text-lg font-semibold mt-4">- Sebastián G.</h4>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="text-center py-10 bg-blue-600 text-white">
+    <h2 class="text-2xl font-bold">Encuentra lo mejor en tecnología</h2>
+    <p class="mt-2">Explora nuestra tienda y elige lo que necesitas.</p>
+    <a th:href="@{/productos}" class="mt-4 inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-200">
+        Ver Productos
+    </a>
+</section>
+
+
+<!-- Footer Mejorado -->
+<footer class="bg-gray-900 text-white text-center p-6">
     <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+    <div class="mt-4">
+        <a href="#" class="mx-2 hover:text-gray-400">Facebook</a>
+        <a href="#" class="mx-2 hover:text-gray-400">Instagram</a>
+        <a href="#" class="mx-2 hover:text-gray-400">Twitter</a>
+    </div>
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.0/flowbite.min.js"></script>
 </body>
 </html>
